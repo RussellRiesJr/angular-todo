@@ -1,0 +1,17 @@
+{
+  "name": "angular-todo",
+  "homepage": "https://github.com/RussellRiesJr/angular-todo",
+  "authors": [
+    "Russell Ries <riesru@gmail.com>"
+  ],
+  "description": "Intro to Angular",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
