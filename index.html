@@ -22,11 +22,25 @@
         <div>{{bob}}</div> -->
         <form ng-submit="addTodo()">
           <input type="text" ng-model="newTodo">
+          <input name="taskType" type="radio" value="home" ng-model="taskType">Home
+          <input name="taskType" type="radio" value="work" ng-model="taskType">Work
           <button type="submit" class="btn-default">New Todo</button>
         </form>
 
         <div>
-          <ul ng-repeat="eachItem in tasks | filter: potato | filter: dan">
+          <label for="type">Task Type</label>
+          <select id="type"
+            ng-model="selectedTodo"
+            ng-options="item.name group by item.type for item in tasks">
+          </select>
+        </div>
+
+        <div>
+          <h2>You have selected {{selectedTodo.name}}</h2>
+        </div>
+
+        <div>
+          <ul ng-repeat="eachItem in tasks | filter: potato">
             <li>{{eachItem.name}} <button ng-click="removeTodo(eachItem)">Delete</button></li>
           </ul>
         </div>

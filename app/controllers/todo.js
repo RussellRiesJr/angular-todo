@@ -6,6 +6,9 @@ app.controller("TodoCtrl", function($scope) {
   $scope.bob = '';
 
   $scope.newTodo = '';
+  $scope.taskType = 'home';
+
+  $scope.selectedTodo = 'nothing'
 
   $scope.tasks = [
     { name: "Make the bed", type: "home" },
@@ -16,13 +19,15 @@ app.controller("TodoCtrl", function($scope) {
   ]
 
   $scope.addTodo = function () {
-    $scope.tasks.push({ name: $scope.newTodo, type: "home"});
+    $scope.tasks.push({ name: $scope.newTodo, type: $scope.taskType});
     $scope.newTodo = '';
   }
 
   $scope.removeTodo = (tasks) => {
     const taskIndex = $scope.tasks.indexOf(tasks);
-    $scope.tasks.splice(taskIndex, 1);
+    if (taskIndex >= 0) {
+      $scope.tasks.splice(taskIndex, 1);
+    }
   }
 
 })
